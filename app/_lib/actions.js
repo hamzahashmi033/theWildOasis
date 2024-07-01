@@ -82,7 +82,7 @@ export async function updateReservation(formData) {
 
 }
 export async function signInAction() {
-    await signIn("google", { redirectTo: "/account" })
+    await signIn("github", { redirectTo: "/account" })
 }
 export async function signOutAction() {
     await signOut({ redirectTo: "/" })
