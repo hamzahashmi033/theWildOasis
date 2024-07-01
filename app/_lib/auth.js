@@ -26,12 +26,14 @@ const authConfig = {
             try {
 
                 const existingUser = await getGuest(user.email)
+                console.log(existingUser)
                 if (!existingUser.data.success) {
                     await createGuest({ email: user.email, fullName: user.name })
                     return true
                 }
                 return true
             } catch (error) {
+                console.log(error)
                 return false
             }
 
