@@ -1,10 +1,15 @@
 import SignInButton from "../_components/SignInButton";
 import { signInAction } from "../_lib/actions";
-
+import { redirect } from "next/navigation";
+import { auth } from "../_lib/auth";
 export const metadata = {
   title: "Login"
 }
-export default function Page() {
+export default async function Page() {
+  const session = await auth();
+  if (session) {
+    redirect("/account")
+  }
   return (
     <form action={signInAction}>
 
